@@ -12,7 +12,7 @@ jobs:
 
       - run: |
           cat > .npmrc << EOM
-          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+          //npm.pkg.github.com/:_authToken=${{ github.token }}
           registry=https://npm.pkg.github.com/${{ github.repository_owner }}
           EOM
 
@@ -30,5 +30,3 @@ jobs:
 
       - name: Publish the package
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
