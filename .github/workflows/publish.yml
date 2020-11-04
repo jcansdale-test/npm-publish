@@ -12,7 +12,11 @@ jobs:
 
       - uses: actions/setup-node@v1
 
-      - run: echo foo > .npmrc
+      - run: |
+          cat > .npmrc << EOM
+          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+          registry=https://npm.pkg.github.com/${{ github.repository_owner }}
+          EOM
 
       - name: Create a package called @${{ github.repository }}
         run: npm init --scope ${{ github.repository_owner }} -y
