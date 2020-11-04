@@ -10,8 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-
       - run: |
           cat > .npmrc << EOM
           //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
