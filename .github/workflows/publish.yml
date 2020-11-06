@@ -21,7 +21,7 @@ jobs:
           EOM
 
       - name: Create a package called @${{ github.repository }}
-        run: npm init --scope ${{ github.repository_owner }} -y
+        run: npm init --scope JCANSDALE-TEST -y
 
       - name: Add index.js to package
         run: echo 'exports.sayHello = () => { console.log("Hello from ${{ github.repository }}!") }' > index.js
